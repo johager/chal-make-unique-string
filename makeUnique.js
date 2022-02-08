@@ -20,8 +20,15 @@ function makeUnique(str) {
     return newStr
 }
 
+// Set in JavaScript retains order
+// A Set in swift does not, so I didn't consider this more-elegant option
+function makeUnique2(str) {
+    let newChars = new Set(str)
+    return [...newChars].join('')
+}
+
 function testMakeUnique(str, exp) {
-    const res = makeUnique(str)
+    const res = makeUnique2(str)
     console.log("str:", str, "  res:", res, "  exp:", exp, "  passed:", res === exp)
 }
 
